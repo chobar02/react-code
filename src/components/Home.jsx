@@ -1,12 +1,14 @@
 import React from 'react'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
+import Loader from './Loader'
 
 const Home = () => {
 
   const [first, setFirst] = useState([])
   const [pastadata, setPastadata] = useState([])
   const [sushidata, setSushidata] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
 
   const apiKey = "47fa30f19c7849b08058f494ff3f9b4c"
@@ -38,12 +40,17 @@ const Home = () => {
     let sushiData = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=4&query=sushi`)
     let resSushi = await sushiData.json()
     setSushidata(resSushi.results)
+    setIsLoading(false)
   }, [apiKey])
 
   useEffect(() => {
     getSushi()
   }, [])
+  
 
+  if (isLoading) {
+    return <div className='flex items-center justify-center'><Loader /></div>
+}
 
 
 

@@ -42,7 +42,7 @@ const Category = () => {
 
   return (
     <>
-      <div className='bg-[#f9f4f4] text-[#17171f] w-3/4 mx-auto'>
+      <div className='bg-textColor text-bgColor w-3/4 mx-auto'>
         <div className='flex gap-10 my-5'>
           <h3 className='min-w-40'>Food</h3>
           <h3>Cuisine</h3>

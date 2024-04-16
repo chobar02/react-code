@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom'
 
 const Footer = () => {
     return (
-        <footer className='mt-10 py-20 text-[#f9f4f4] bg-[#17171f] flex justify-between'>
+        <footer className='mt-10 py-20 text-textColor bg-bgColor flex justify-between'>
             <div className="overall flex justify-between w-4/5 mx-auto">
 
 
@@ -28,17 +28,17 @@ const Footer = () => {
                 <div className="navfooter">
                     <ul className='flex flex-col'>
                         <li className='list-none'>
-                            <Link to="/" className='text-[#f9f4f4] no-underline hover:underline'>
+                            <Link to="/" className='text-textColor no-underline hover:underline'>
                                 Home
                             </Link>
                         </li>
                         <li className='list-none'>
-                            <Link to="/about" className='text-[#f9f4f4] no-underline hover:underline'>
+                            <Link to="/about" className='text-textColor no-underline hover:underline'>
                                 About
                             </Link>
                         </li>
                         <li className='list-none'>
-                            <Link to="/category" className="text-[#f9f4f4] no-underline hover:underline">
+                            <Link to="/category" className="text-textColor no-underline hover:underline">
                                 Categories
                             </Link>
                         </li>
