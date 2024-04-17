@@ -32,9 +32,9 @@ const Information = () => {
 
     return (
         <>
-            <div className='flex flex-col gap-3 items-center w-[90%] mx-auto my-4'>
+            <div className='flex flex-col gap-3 items-center text-center w-[90%] mx-auto my-4'>
                 <div className="img">
-                    <img className='rounded-md' src={imgPath} alt="" />
+                    <img className='rounded-md w-72 md:w-full' src={imgPath} alt="" />
                 </div>
                 <div className="title font-bold text-lg">
                     {response.title}

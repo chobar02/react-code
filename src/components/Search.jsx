@@ -17,34 +17,36 @@ const Search = () => {
 
   const apiKey = "47fa30f19c7849b08058f494ff3f9b4c"
   const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=${number}&query=${query}`
-  // const getInfourl = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`
-  // const imgPath = `https://spoonacular.com/recipeImages/${id}-240x150.jpg`
+
 
   const handleOnchange = (e) => {
     setQuery(e.target.value)
 
   }
 
-  // useEffect(async () => {
-  //   if (input.length > 0) {
+  useEffect(() => {
+    if (query.length > 0) {
+      setTimeout( async () => {        
+        setIsLoading(true)
+        let recipes = await fetch( `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&number=${number}&query=${query}`)
+        let response = await recipes.json()
+        setResult(response.results)
+        setIsLoading(false)
+      }, 2000);
+    }
+  }, [query])
+
+
+  // const getRecipe = useCallback(async () => {
+  //   if (query.length > 0) {
+  //     setIsLoading(true)
   //     let recipes = await fetch(url)
   //     let response = await recipes.json()
   //     setResult(response.results)
   //     setIsLoading(false)
   //   }
-  // }, [input])
 
-
-  const getRecipe = useCallback(async () => {
-    if (query.length > 0) {
-      setIsLoading(true)
-      let recipes = await fetch(url)
-      let response = await recipes.json()
-      setResult(response.results)
-      setIsLoading(false)
-    }
-
-  }, [number, query, apiKey])
+  // }, [number, query, apiKey])
 
   const handleBtnclick = () => {
     getRecipe()
@@ -56,14 +58,11 @@ const Search = () => {
     getRecipe()
   }
 
-  // const handleDetail = (e) => {
-  //   dispatch(setID(e.target.id)) 
-  // }
 
   if (isLoading) {
     return <div className='min-h-[70vh]'>
       <div className="searchbox my-5 justify-center flex items-center">
-        <input onChange={handleOnchange} value={query} className='outline-none py-1 px-2 text-bgColor bg-textColor text-lg font-semibold rounded-md w-2/4 ' type="text" />
+        <input onChange={handleOnchange} value={query} className='outline-none py-1 px-2 text-bgColor bg-textColor text-lg font-semibold rounded-md md:w-2/4 w-3/4' type="text" />
         <button onClick={handleBtnclick} className='py-[10px] px-6 rounded-r-md cursor-pointer bg-bgColor text-textColor font-semibold relative right-16'>
           Search
         </button>
@@ -78,7 +77,7 @@ const Search = () => {
   return (
     <div className='min-h-[70vh]'>
       <div className="searchbox my-5 justify-center flex items-center">
-        <input onChange={handleOnchange} value={query} className='outline-none py-1 px-2 text-bgColor bg-textColor text-lg font-semibold rounded-md w-2/4 ' type="text" />
+        <input onChange={handleOnchange} value={query} className='outline-none py-1 px-2 text-bgColor bg-textColor text-lg font-semibold rounded-md w-3/4 md:w-2/4 ' type="text" />
         <button onClick={handleBtnclick} className='py-[10px] px-6 rounded-r-md cursor-pointer bg-bgColor text-textColor font-semibold relative right-16'>
           Search
         </button>

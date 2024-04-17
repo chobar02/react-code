@@ -60,7 +60,7 @@ const Home = () => {
 
         <div className="my-9 flex flex-col gap-5">
           <h2>Pizza</h2>
-          <div className="results flex gap-3 w-3/4 mx-auto">
+          <div className="results flex flex-wrap gap-3 w-3/4 mx-auto">
             {first.map((item) => {
               return (
                 <div key={item.id} className="flex flex-col items-center gap-2 bg-[#17171f] text-[#f9f4f4] rounded-md p-1">
@@ -80,7 +80,7 @@ const Home = () => {
 
           </div>
           <h2>Pasta</h2>
-          <div className='flex gap-3 w-3/4 mx-auto'>
+          <div className='flex flex-wrap gap-3 w-3/4 mx-auto'>
             {pastadata.map((item) => {
               return (
                 <div key={item.id} className="flex flex-col items-center gap-2 bg-[#17171f] text-[#f9f4f4] rounded-md p-1">
@@ -99,7 +99,7 @@ const Home = () => {
           </div>
 
           <h2>Sushi</h2>
-          <div className='flex gap-3 w-3/4 mx-auto'>
+          <div className='flex flex-wrap gap-3 w-3/4 mx-auto'>
             {sushidata.map((item) => {
               return (
                 <div key={item.id} className="flex flex-col items-center gap-2 bg-[#17171f] text-[#f9f4f4] rounded-md p-1">
